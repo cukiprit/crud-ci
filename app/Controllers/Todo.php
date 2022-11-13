@@ -27,7 +27,7 @@ class Todo extends BaseController
     public function viewTodos($id)
     {
         $todo = new TodoModel();
-        $data['todos'] = $todo->where([
+        $data['todo'] = $todo->where([
             'id' => $id
         ])->first();
 
@@ -35,7 +35,7 @@ class Todo extends BaseController
         $data['description'] = "Disini semua list Anda";
 
         // Menampilkan error jika data tidak ditemukan
-        if (!$data['todos']) {
+        if (!$data['todo']) {
             throw PageNotFoundException::forPageNotFound();
         }
 
